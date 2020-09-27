@@ -1,6 +1,6 @@
 # Parkins
-Esta aplicación semi gráfica (para terminal) te permite escribir caracteres braille Unicode usando seis teclas del teclado Qwerty (fds-jkl)
-como si estuvieras escribiendo con una másquina Perkins. Podrás visualizar en tiempo real los caracteres braille escritos así como su *traducción*
+Esta aplicación semigráfica (para terminal) te permite escribir caracteres braille Unicode usando seis teclas del teclado Qwerty (fds-jkl)
+como si estuvieras escribiendo con una máquina Perkins. Podrás visualizar en tiempo real los caracteres braille escritos así como su *traducción*
 al alfabeto, números y signos de puntuación del español.
 Al final puedes guardar los caracteres braille escritos en un documento de texto (\*.txt).
 
