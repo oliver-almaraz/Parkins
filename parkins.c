@@ -21,7 +21,7 @@ const char *perk[] = { // Equivalentes en combinación Perkins (f=punto 1, d=2, 
 };
 const char *alpha[] = { // Las letras que corresponden a un solo signo. Signos poco comunes,
 // inexistentes en español, o que requieren más de un signo para interpretarse se ignoran ("�").
-	   "\u00A0", "a", ",", "b", ".", "k",  ";",  "l", "�",  "c", "i", "f", "í", "m",  "s", "p",
+	   		" ", "a", ",", "b", ".", "k",  ";",  "l", "�",  "c", "i", "f", "í", "m",  "s", "p",
 			"@", "e", ":", "h", "*", "o",  "!",  "r", "�",  "d", "j", "g", ")", "n",  "t", "q",
 			"�", "�", "?", "(", "-", "u",  "\"", "v", "�",  "�", "�", "�", "ó", "x",  "é", "�",
 			"�", "�", "�", "ü", "?", "z",  "=",  "á", "|",  "�", "w", "ñ", "�", "y",  "ú", "�"
@@ -46,19 +46,22 @@ int main() {
 		system("clear");
 		printf(
 			"╔═════════════════════════════════════════════════════════════════════════════════╗\n"
-			"║⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿ OUTPUT BRAILLE ⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿║\n"
+			"║⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿ 𝐁𝐑𝐀𝐈𝐋𝐋𝐄 ⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿║\n"
 			"╚═════════════════════════════════════════════════════════════════════════════════╝\n"
 			"%s\n\n\n"
 			"╔═════════════════════════════════════════════════════════════════════════════════╗\n"
-			"║⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿ OUTPUT TEXTO ⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿║\n"
+			"║⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿ 𝐓𝐄𝐗𝐓𝐎 ⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿║\n"
 			"╚═════════════════════════════════════════════════════════════════════════════════╝\n"
 			"%s\n\n\n\n\n"
 			"╔═════════════════════════════════════════════════════════════════════════════════╗\n"
-			"║ Usa tu teclado Qwerty como Perkins o escribe 'b' para BORRAR el último elemento.║\n"
-			"║ Para BORRAR un elemento solo de la parte de BRAILLE, escribe 'r',               ║\n"
-			"║ y para BORRAR un elemento solo de la parte de TEXTO, escribe 't'.               ║\n"
-			"║ Escribe 'w' para GUARDAR el texto braille completo a un documento.              ║\n"
-			"║ Para SALIR sin guardar escribe 'salir'                                          ║\n"
+			"║ Usa tu teclado Qwerty como Perkins para ingresar 𝐮𝐧 𝐬𝐢𝐠𝐧𝐨 𝐚 𝐥𝐚 𝐯𝐞𝐳 y presiona   ║\n"
+			"║ '𝐞𝐧𝐭𝐞𝐫', también puedes ingresar espacios, tabulaciones y saltos de linea.      ║\n"
+			"║                     F = punto 1, D=2, S=3 J=4, K=5, L=6.                        ║\n"
+			"╟─────────────────────────────────────────────────────────────────────────────────╢\n"
+			"║ '𝐛' = 𝐁𝐎𝐑𝐑𝐀𝐑 último elemento de ambas partes (𝐭𝐞𝐱𝐭𝐨 𝐲 𝐛𝐫𝐚𝐢𝐥𝐥𝐞).                 ║\n"
+			"║ '𝐫' = 𝐁𝐎𝐑𝐑𝐀𝐑 último elemento 𝐬𝐨𝐥𝐨 de la parte de 𝐛𝐫𝐚𝐢𝐥𝐥𝐞.                       ║\n"
+			"║ '𝐰' = 𝐆𝐔𝐀𝐑𝐃𝐀𝐑 el texto braille completo en un documento.                        ║\n"
+			"║ '𝐬𝐚𝐥𝐢𝐫' = 𝐒𝐀𝐋𝐈𝐑 sin guardar                                                     ║\n"
 			"╚═════════════════════════════════════════════════════════════════════════════════╝\n", textoBrai, texto);
 		
 		fgets(input, 8, stdin);
@@ -75,6 +78,11 @@ int main() {
 		} else if (! strcmp(input, "\t\n")) {
 			strcat(textoBrai, "\t");
 			strcat(texto, "\t");
+			NUMERAL = 0;
+			continue;
+		} else if (! strcmp(input, " \n")) { // Si es un espacio
+			strcat(textoBrai, "⠀");
+			strcat(texto, " ");
 			NUMERAL = 0;
 			continue;
 		}
@@ -110,15 +118,6 @@ int main() {
 			continue;
 
 		}
-		 // T borra solo de la parte de texto
-		 else if (! strcmp(input, "t\n") || ! strcmp(input, "T\n")) {
-			texto[strlen(texto)-1] = '\0';
-			continue;
-		}
-		 else if (! strcmp(input, "SALIR\n") || ! strcmp(input, "salir\n")) { // Salir
-			free(texto);
-			exit(0);
-		}
 
 		/*****************************************************************
 		 * input == "W" crea un documento y guarda el texto braille en él
@@ -130,9 +129,25 @@ int main() {
 			time_t t = time(NULL);
   			struct tm tm = *localtime(&t);
   			sprintf(nombre,"braille_%02d-%02d_%02d:%02d.txt", tm.tm_mday, tm.tm_mon + 1, tm.tm_hour, tm.tm_min);
+			FILE *fptr = NULL;
+			
+			printf("\nSe creará el documento '%s' en el directorio actual:\n", nombre);
+			system("pwd");
+			printf("¿Quieres guardarlo con otro nombre o en otra ubicación? s/n\n");
+			char resp[3];
+			fgets(resp,3,stdin);
+			if ( ! strcmp(resp, "s\n") || ! strcmp(resp, "S\n")) {
+				char rutaAbsol[250] = "";
+				printf("Ingresa la ruta absoluta (nombre incluido) del documento a crear (si existe será sobreescrito):\n");
+				fgets(rutaAbsol, 250, stdin);
+				rutaAbsol[strcspn(rutaAbsol, "\n")] = '\0';
+				fptr = NULL;
+				fptr = fopen(rutaAbsol, "w");
 
-			FILE *fptr = fopen(nombre, "w");
-
+		 	} else {
+				fptr = fopen(nombre, "w");
+			}
+			
 			if (fptr == NULL) {
 				printf("No se pudo crear el documento de texto.\nPresiona 'Enter' para continuar donde te quedaste.\n");
 				fgets(input, 2, stdin);
@@ -140,11 +155,10 @@ int main() {
 				// No se retorna error para no perder el progreso en caso de error.
 			}
 
-			printf("\nCreando el documento '%s' en el directorio actual:\n", nombre);
-			system("pwd");
 			fprintf(fptr, "%s", textoBrai);
 			fclose(fptr);
 			printf("\n\n¡Documento guardado con éxito!\n\n");
+			fptr = NULL;
 
 			// No se termina el programa para no perder el progreso en caso de querer continuar.
 			printf("Presiona 'Enter' para continuar escribiendo o escribe 'salir':\n");
@@ -197,7 +211,7 @@ int main() {
 				// Se añade el signo braille a textoBrai
 				strcat(textoBrai, braille[i]);
 
-				if (i == 0 || i == 16) // Si es el espacio o el punto 5
+				if (i == 16) // Si es el punto 5
 					NUMERAL = 0;
 
 				// Y se añade el signo del alfabeto a 'texto'
