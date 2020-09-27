@@ -84,29 +84,36 @@ int main() {
 		*********************************************************/
 
 		 else if (! strcmp(input, "b\n") || ! strcmp(input, "B\n")) {
-			if (textoBrai[strlen(textoBrai)-1] == '\n' || textoBrai[strlen(textoBrai)-1] == '\t')
+			if (textoBrai[strlen(textoBrai)-1] == '\n' || textoBrai[strlen(textoBrai)-1] == '\t') {
 			// Para borrar tabulación o salto solo se borra el último char
 				textoBrai[strlen(textoBrai)-1] = '\0';
-			else // Caracteres braille requieren borrar 3 chars
-				for (int i=0; i <3; i++)
+			} else { // Caracteres braille requieren borrar 3 chars
+				for (int i=0; i <3; i++) {
 					textoBrai[strlen(textoBrai)-1] = '\0';
-
+				}
+			}
 			// Se borratambién el texto normal
 			texto[strlen(texto)-1] = '\0';
+			continue;
 		}
 		 // R borra solo de la parte de Braille
 		 else if (! strcmp(input, "r\n") || ! strcmp(input, "R\n")) {
-			if (textoBrai[strlen(textoBrai)-1] == '\n' || textoBrai[strlen(textoBrai)-1] == '\t')
+			if (textoBrai[strlen(textoBrai)-1] == '\n' || textoBrai[strlen(textoBrai)-1] == '\t') {
 			// Para borrar tabulación o salto solo se borra el último char
 				textoBrai[strlen(textoBrai)-1] = '\0';
-			else // Caracteres braille requieren borrar 3 chars
-				for (int i=0; i <3; i++)
+			}
+			else { // Caracteres braille requieren borrar 3 chars
+				for (int i=0; i <3; i++) {
 					textoBrai[strlen(textoBrai)-1] = '\0';
+				}
+			}
+			continue;
 
 		}
 		 // T borra solo de la parte de texto
 		 else if (! strcmp(input, "t\n") || ! strcmp(input, "T\n")) {
 			texto[strlen(texto)-1] = '\0';
+			continue;
 		}
 		 else if (! strcmp(input, "SALIR\n") || ! strcmp(input, "salir\n")) { // Salir
 			free(texto);
@@ -149,24 +156,25 @@ int main() {
 			 else
 				continue;
 		}
+
 		/*************************
 		 * SI ES UN SIGNO BRAILLE
 		**************************/
-		 else
-			input[strcspn(input, "\n")]  = '\0'; // Se elimina el \n
+		
+		input[strcspn(input, "\n")]  = '\0'; // Se elimina el \n
 
-			// Se ordena alfabéticamente el input
-			char temp;
-			int i, j;
-			int n = strlen(input);
-			for (i = 0; i < n-1; i++) {
-				for (j = i+1; j < n; j++) {
-					if (input[i] > input[j]) {
-							temp = input[i];
-							input[i] = input[j];
-							input[j] = temp;
-					}
+		// Se ordena alfabéticamente el input
+		char temp;
+		int i, j;
+		int n = strlen(input);
+		for (i = 0; i < n-1; i++) {
+			for (j = i+1; j < n; j++) {
+				if (input[i] > input[j]) {
+						temp = input[i];
+						input[i] = input[j];
+						input[j] = temp;
 				}
+			}
 		}
 
 		if (! strcmp(input, "jl")) { // Signo de mayúscula
@@ -192,8 +200,7 @@ int main() {
 				if (i == 0 || i == 16) // Si es el espacio o el punto 5
 					NUMERAL = 0;
 
-				// y el signo del alfabeto a texto
-
+				// Y se añade el signo del alfabeto a 'texto'
 				if (MAYUS) {
 					char mayus = toupper(*alpha[i]);
 					char *pMayus = &mayus;
@@ -209,6 +216,10 @@ int main() {
 						}
 					}
 				} 
+				 else if (NUMERAL && *alpha[i] >=107 && *alpha[i] <=122) { // Si NUMERAL y se escribe una letra minus. fuera del rango a-j
+					NUMERAL=0;
+					strcat(texto, alpha[i]);
+				}
 				 else {
 					strcat(texto, alpha[i]);
 					continue;
