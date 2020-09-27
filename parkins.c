@@ -150,7 +150,7 @@ int main() {
 				continue;
 		}
 		/*************************
-		 * SI ES UNA SIGNO BRAILLE
+		 * SI ES UN SIGNO BRAILLE
 		**************************/
 		 else
 			input[strcspn(input, "\n")]  = '\0'; // Se elimina el \n
