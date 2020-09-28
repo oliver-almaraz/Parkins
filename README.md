@@ -7,4 +7,4 @@ Al final puedes guardar los caracteres braille escritos en un documento de texto
 ### Por ahora solo funciona en Linux.
 
 ## Captura de pantalla:
-<img src="https://user-images.githubusercontent.com/69062188/94358083-feb57800-0063-11eb-9fc1-9292247e7228.png" width="90%"></img> 
+<img src="https://user-images.githubusercontent.com/69062188/94396278-33d6ce80-0127-11eb-9cda-7cb0aa0cbdcc.png" width="90%"></img>  
