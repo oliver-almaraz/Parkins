@@ -20,18 +20,21 @@ const char *perk[] = { // Equivalentes en combinación Perkins (f=punto 1, d=2, 
 	"kl", "fkl", "dkl", "dfkl", "kls", "fkls", "dkls", "dfkls", "jkl", "fjkl", "djkl", "dfjkl", "jkls", "fjkls", "djkls", "dfjkls"
 };
 const char *alpha[] = { // Las letras que corresponden a un solo signo. Signos poco comunes,
-// inexistentes en español, o que requieren más de un signo para interpretarse se ignoran ("�").
-	   		" ", "a", ",", "b", ".", "k",  ";",  "l", "�",  "c", "i", "f", "í", "m",  "s", "p",
-			"@", "e", ":", "h", "*", "o",  "!",  "r", "�",  "d", "j", "g", ")", "n",  "t", "q",
-			"�", "�", "?", "(", "-", "u",  "\"", "v", "�",  "�", "�", "�", "ó", "x",  "é", "�",
-			"�", "�", "�", "ü", "?", "z",  "=",  "á", "|",  "�", "w", "ñ", "�", "y",  "ú", "�"
+// inexistentes en español, o que requieren más de un signo para interpretarse se ignoran ("?").
+	   		" ", "a", ",", "b", ".", "k",  ";",  "l", "?",  "c", "i", "f", "í", "m",  "s", "p",
+			"@", "e", ":", "h", "*", "o",  "!",  "r", "?",  "d", "j", "g", ")", "n",  "t", "q",
+			"?", "?", "?", "(", "-", "u",  "\"", "v", "?",  "?", "?", "?", "ó", "x",  "é", "?",
+			"?", "?", "?", "ü", "?", "z",  "=",  "á", "|",  "?", "w", "ñ", "?", "y",  "ú", "?"
 };
 char *nums[] = {
   // a	b	c	d	 e	  f		g	h	  i	   j
 	"⠁","⠃","⠉","⠙","⠑","⠋","⠛","⠓","⠊","⠚",
 	"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
 };
-
+const char *diacríticos [] = {
+  "á", "é", "í", "ó", "ú", "ü", "ñ",
+  "Á", "É", "Í", "Ó", "Ú", "Ü", "Ñ"
+};
 int main() {
 
 	setlocale(LC_ALL, "");
@@ -43,6 +46,7 @@ int main() {
 	_Bool NUMERAL = 0;
 
 	while (1) {
+		inicio:
 		system("clear");
 		printf(
 			"╔═════════════════════════════════════════════════════════════════════════════════╗\n"
@@ -61,7 +65,7 @@ int main() {
 			"║ '𝐛' = 𝐁𝐎𝐑𝐑𝐀𝐑 último elemento de ambas partes (𝐭𝐞𝐱𝐭𝐨 𝐲 𝐛𝐫𝐚𝐢𝐥𝐥𝐞).                 ║\n"
 			"║ '𝐫' = 𝐁𝐎𝐑𝐑𝐀𝐑 último elemento 𝐬𝐨𝐥𝐨 de la parte de 𝐛𝐫𝐚𝐢𝐥𝐥𝐞.                       ║\n"
 			"║ '𝐰' = 𝐆𝐔𝐀𝐑𝐃𝐀𝐑 el texto braille completo en un documento.                        ║\n"
-			"║ '𝐬𝐚𝐥𝐢𝐫' = 𝐒𝐀𝐋𝐈𝐑 sin guardar                                                     ║\n"
+			"║ '𝐬𝐚𝐥𝐢𝐫' = 𝐒𝐀𝐋𝐈𝐑 sin guardar.                                                    ║\n"
 			"╚═════════════════════════════════════════════════════════════════════════════════╝\n", textoBrai, texto);
 		
 		fgets(input, 8, stdin);
@@ -100,7 +104,13 @@ int main() {
 					textoBrai[strlen(textoBrai)-1] = '\0';
 				}
 			}
-			// Se borratambién el texto normal
+			// Se borra también el texto normal
+			for (int i=0; i<14; i++) {
+	// los signos diacríticos de interpretan como dos caracteres, de compara el último de 2
+				if (texto[strlen(texto)-1] == diacríticos[i][1]) {
+					texto[strlen(texto)-1] = '\0';
+				}
+			}
 			texto[strlen(texto)-1] = '\0';
 			continue;
 		}
@@ -225,9 +235,19 @@ int main() {
 					NUMERAL = 0;
 				}
 				 else if (MAYUS) {
-					char mayus = toupper(*alpha[i]);
-					char *pMayus = &mayus;
-					strcat(texto, pMayus);
+					// Primero ver si es diacrítico
+					for (int j=0; j<7; j++) {
+						if ( ! strcmp(alpha[i], diacríticos[j])) {
+							strcat(texto, diacríticos[j+7]);
+							MAYUS = 0;
+							NUMERAL = 0;
+							goto inicio; // salir de los bucles anidados para que no imprima más de un caracter.
+						}
+					}
+					// Si no...
+					char mayus[2] = "";
+					mayus[0] = toupper(*alpha[i]);
+					strcat(texto, mayus);
 					MAYUS = 0;
 					NUMERAL = 0;
 				}
@@ -235,6 +255,7 @@ int main() {
 				 	for (j=0; j<10; j++) {
 					 	if (nums[j] == braille[i]) {
 							strcat(texto, nums[j+10]);
+							goto inicio;
 						}
 					}
 				} 
