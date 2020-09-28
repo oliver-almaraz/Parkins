@@ -105,8 +105,10 @@ int main() {
 				}
 			}
 			// Si después de borrar el último caracter braille quedó un s. numeral o de mayus:
-			if (textoBrai[strlen(textoBrai)-1] == braille[40][2] || //mayus
-					 textoBrai[strlen(textoBrai)-1] == braille[60][2]) { //numeral
+			if (
+				( ! strcmp(textoBrai + (strlen(textoBrai)-3), braille[40])) || //mayus
+				( ! strcmp(textoBrai + (strlen(textoBrai)-3), braille[60]))	 //numeral
+			) {
 				for (int i=0; i <3; i++) {
 					textoBrai[strlen(textoBrai)-1] = '\0';
 				}
@@ -121,8 +123,10 @@ int main() {
 			texto[strlen(texto)-1] = '\0';
 
 			// Si después de borrar ambas partes quedó un punto 5 como separador, se borra.
-			if (textoBrai[strlen(textoBrai)-1] == braille[16][2] && // punto 5
-						texto[strlen(texto)-1] != '@') { // usado como separador de nums y letras.
+			if (
+				( ! strcmp(textoBrai + (strlen(textoBrai)-3), braille[16])) && // Punto 5
+				texto[strlen(texto)-1] != '@' // no usado como '@'
+			) {
 				for (int i=0; i <3; i++) {
 					textoBrai[strlen(textoBrai)-1] = '\0';
 				}
