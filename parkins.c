@@ -63,7 +63,6 @@ int main() {
 			"║                     F = punto 1, D=2, S=3 J=4, K=5, L=6.                        ║\n"
 			"╟─────────────────────────────────────────────────────────────────────────────────╢\n"
 			"║ '𝐛' = 𝐁𝐎𝐑𝐑𝐀𝐑 último elemento de ambas partes (𝐭𝐞𝐱𝐭𝐨 𝐲 𝐛𝐫𝐚𝐢𝐥𝐥𝐞).                 ║\n"
-			"║ '𝐫' = 𝐁𝐎𝐑𝐑𝐀𝐑 último elemento 𝐬𝐨𝐥𝐨 de la parte de 𝐛𝐫𝐚𝐢𝐥𝐥𝐞.                       ║\n"
 			"║ '𝐰' = 𝐆𝐔𝐀𝐑𝐃𝐀𝐑 el texto braille completo en un documento.                        ║\n"
 			"║ '𝐬𝐚𝐥𝐢𝐫' = 𝐒𝐀𝐋𝐈𝐑 sin guardar.                                                    ║\n"
 			"╚═════════════════════════════════════════════════════════════════════════════════╝\n", textoBrai, texto);
@@ -99,7 +98,15 @@ int main() {
 			if (textoBrai[strlen(textoBrai)-1] == '\n' || textoBrai[strlen(textoBrai)-1] == '\t') {
 			// Para borrar tabulación o salto solo se borra el último char
 				textoBrai[strlen(textoBrai)-1] = '\0';
-			} else { // Caracteres braille requieren borrar 3 chars
+			}
+			 else { // Caracteres braille requieren borrar 3 chars
+				for (int i=0; i <3; i++) {
+					textoBrai[strlen(textoBrai)-1] = '\0';
+				}
+			}
+			// Si después de borrar el último caracter braille quedó un s. numeral o de mayus:
+			if (textoBrai[strlen(textoBrai)-1] == braille[40][2] || //mayus
+					 textoBrai[strlen(textoBrai)-1] == braille[60][2]) { //numeral
 				for (int i=0; i <3; i++) {
 					textoBrai[strlen(textoBrai)-1] = '\0';
 				}
@@ -112,21 +119,15 @@ int main() {
 				}
 			}
 			texto[strlen(texto)-1] = '\0';
-			continue;
-		}
-		 // R borra solo de la parte de Braille
-		 else if (! strcmp(input, "r\n") || ! strcmp(input, "R\n")) {
-			if (textoBrai[strlen(textoBrai)-1] == '\n' || textoBrai[strlen(textoBrai)-1] == '\t') {
-			// Para borrar tabulación o salto solo se borra el último char
-				textoBrai[strlen(textoBrai)-1] = '\0';
-			}
-			else { // Caracteres braille requieren borrar 3 chars
+
+			// Si después de borrar ambas partes quedó un punto 5 como separador, se borra.
+			if (textoBrai[strlen(textoBrai)-1] == braille[16][2] && // punto 5
+						texto[strlen(texto)-1] != '@') { // usado como separador de nums y letras.
 				for (int i=0; i <3; i++) {
 					textoBrai[strlen(textoBrai)-1] = '\0';
 				}
 			}
 			continue;
-
 		}
 
 		/*****************************************************************
