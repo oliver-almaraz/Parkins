@@ -20,11 +20,11 @@ const char *perk[] = { // Equivalentes en combinación Perkins (f=punto 1, d=2, 
 	"kl", "fkl", "dkl", "dfkl", "kls", "fkls", "dkls", "dfkls", "jkl", "fjkl", "djkl", "dfjkl", "jkls", "fjkls", "djkls", "dfjkls"
 };
 const char *alpha[] = { // Las letras que corresponden a un solo signo. Signos poco comunes,
-// inexistentes en español, o que requieren más de un signo para interpretarse se ignoran ("?").
-	   		" ", "a", ",", "b", ".", "k",  ";",  "l", "?",  "c", "i", "f", "í", "m",  "s", "p",
-			"@", "e", ":", "h", "*", "o",  "!",  "r", "?",  "d", "j", "g", ")", "n",  "t", "q",
-			"?", "?", "?", "(", "-", "u",  "\"", "v", "?",  "?", "?", "?", "ó", "x",  "é", "?",
-			"?", "?", "?", "ü", "?", "z",  "=",  "á", "|",  "?", "w", "ñ", "?", "y",  "ú", "?"
+// inexistentes en español, o que requieren más de un signo para interpretarse se ignoran ("�").
+	   		" ", "a", ",", "b", ".", "k",  ";",  "l", "�",  "c", "i", "f", "í", "m",  "s", "p",
+			"@", "e", ":", "h", "*", "o",  "!",  "r", "�",  "d", "j", "g", ")", "n",  "t", "q",
+			"�", "�", "?", "(", "-", "u",  "\"", "v", "�",  "�", "�", "�", "ó", "x",  "é", "�",
+			"�", "�", "�", "ü", "�", "z",  "=",  "á", "|",  "�", "w", "ñ", "�", "y",  "ú", "�"
 };
 char *nums[] = {
   // a	b	c	d	 e	  f		g	h	  i	   j
@@ -114,9 +114,15 @@ int main() {
 				}
 			}
 			// Se borra también el texto normal
+			
+			// Primero el caracter de reemplazo para signo desconocido '�':
+			if ( ! strcmp(texto + (strlen(texto)-3), "�") ) {
+				for (int i=0; i<2; i++)
+					texto[strlen(texto)-1] = '\0';
+			}
 			for (int i=0; i<14; i++) {
-	// los signos diacríticos de interpretan como dos caracteres, de compara el último de 2
-				if (texto[strlen(texto)-1] == diacríticos[i][1]) {
+			// los signos diacríticos de interpretan como dos caracteres, se comparan como string
+				if ( ! strcmp(texto + (strlen(texto)-2), diacríticos[i]) ) {
 					texto[strlen(texto)-1] = '\0';
 				}
 			}
