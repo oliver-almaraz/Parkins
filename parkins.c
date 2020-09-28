@@ -170,6 +170,13 @@ int main() {
 			 else
 				continue;
 		}
+		/***********
+		 * 'SALIR'
+		************/
+		 else if (! strcmp(input, "salir\n") || ! strcmp(input, "SALIR\n")) {
+			free(texto);
+			exit(0);
+		}
 
 		/*************************
 		 * SI ES UN SIGNO BRAILLE
@@ -211,11 +218,13 @@ int main() {
 				// Se añade el signo braille a textoBrai
 				strcat(textoBrai, braille[i]);
 
-				if (i == 16) // Si es el punto 5
-					NUMERAL = 0;
-
 				// Y se añade el signo del alfabeto a 'texto'
-				if (MAYUS) {
+
+				// Si es el punto 5 seguido de números
+				if (NUMERAL && i == 16) {
+					NUMERAL = 0;
+				}
+				 else if (MAYUS) {
 					char mayus = toupper(*alpha[i]);
 					char *pMayus = &mayus;
 					strcat(texto, pMayus);
@@ -226,7 +235,6 @@ int main() {
 				 	for (j=0; j<10; j++) {
 					 	if (nums[j] == braille[i]) {
 							strcat(texto, nums[j+10]);
-							continue;
 						}
 					}
 				} 
@@ -236,7 +244,6 @@ int main() {
 				}
 				 else {
 					strcat(texto, alpha[i]);
-					continue;
 				}
 			}
 		}
