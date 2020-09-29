@@ -1,3 +1,12 @@
+/*
+Oliver Almaraz
+oliver.almaraz@gmail.com
+
+Facienda:
+- interfaz gráfica para Windows ¿GTK?
+- Envío automático de respuesta sin presionar 'enter' ¿KeyUp - event listener?
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -26,7 +35,7 @@ const char *alpha[] = { // Las letras que corresponden a un solo signo. Signos p
 			"�", "�", "?", "(", "-", "u",  "\"", "v", "�",  "�", "�", "�", "ó", "x",  "é", "�",
 			"�", "�", "�", "ü", "�", "z",  "=",  "á", "|",  "�", "w", "ñ", "�", "y",  "ú", "�"
 };
-char *nums[] = {
+const char *nums[] = {
   // a	b	c	d	 e	  f		g	h	  i	   j
 	"⠁","⠃","⠉","⠙","⠑","⠋","⠛","⠓","⠊","⠚",
 	"1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
@@ -35,6 +44,7 @@ const char *diacríticos [] = {
   "á", "é", "í", "ó", "ú", "ü", "ñ",
   "Á", "É", "Í", "Ó", "Ú", "Ü", "Ñ"
 };
+
 int main() {
 
 	setlocale(LC_ALL, "");
@@ -219,13 +229,14 @@ int main() {
 			}
 		}
 
-		if (! strcmp(input, "jl")) { // Signo de mayúscula
+		if ( ! strcmp(input, "jl")) { // Signo de mayúscula
 			MAYUS = 1;
 			NUMERAL = 0;
 			strcat(textoBrai, braille[40]);
 			continue;
-		} else if (! strcmp(input, "jkls")) { // Numeral
+		} else if ( ! strcmp(input, "jkls")) { // Numeral
 			NUMERAL = 1;
+			MAYUS = 0; // Previene un error del usuario
 			strcat(textoBrai, braille[60]);
 			continue;
 		}
@@ -267,6 +278,7 @@ int main() {
 					 	if (nums[j] == braille[i]) {
 							strcat(texto, nums[j+10]);
 							goto inicio;
+							// Ya se había desactivado NUMERAL con el punto 5
 						}
 					}
 				} 
