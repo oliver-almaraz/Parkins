@@ -1,10 +1,6 @@
 /*
 Oliver Almaraz
 oliver.almaraz@gmail.com
-
-Facienda:
-- interfaz gráfica para Windows ¿GTK?
-- Envío automático de respuesta sin presionar 'enter' ¿KeyUp - event listener?
 */
 
 #include <stdio.h>
