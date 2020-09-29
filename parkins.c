@@ -122,6 +122,8 @@ int main() {
 				for (int i=0; i <3; i++) {
 					textoBrai[strlen(textoBrai)-1] = '\0';
 				}
+				NUMERAL = 0; // Se desactiva NUMERAL si se borra el signo numeral
+				// MAYUS no se desactiva porque de desactiva solo a la primera letra después de él
 			}
 			// Se borra también el texto normal
 			
