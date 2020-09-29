@@ -7,6 +7,10 @@ Al final puedes guardar los caracteres braille escritos en un documento de texto
 ### Por ahora solo funciona en Linux.
 Por más que peleé contra la codificación de las consolas de Windows (otra vez) no encontré una manera de que los signos braille Unicode se mostraran
 correctamente sin tener que instalar nuevas fuentes o emuladores de teminal Unix, además de que las terminales de Windows son menos responsivas (¿o será el sistema?).
+### Puedes usarla desde cualquier sistema operativo compilando en línea:
+[Relp.it](https://repl.it/languages/c) tiene un excelente compilador en línea que funciona con un servidor Ubuntu que además se puede incorporar como HTML:
+
+<iframe height="800px" width="900px" src="https://repl.it/repls/ExternalDapperCommas?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 Mientras tanto, hay otras [opciones gratuitas](https://www.brailleblaster.org/) (sin soporte para español).
 
