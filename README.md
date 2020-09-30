@@ -15,8 +15,8 @@ La desventaja con respecto a la aplicación de escritorio es que no podrás guar
 ### ¿Quieres usarlo en macOS?
 Si tienes una mac y te gustaría usar la aplicación de escritorio pero no sabes cómo **compilar el código fuente**, [contáctame](mailto:oliver.almaraz@gmail.com) y te ayudo.
 
-#### [**Compila y ejecuta el código en tiempo real.**](https://repl.it/repls/ExternalDapperCommas?lite=true)
-Si quieres darte una idea de cómo funciona antes de instalar las herramientas para desarrollador.
+#### [**Compila y ejecuta el código en tiempo real**](https://repl.it/repls/ExternalDapperCommas?lite=true)
+si quieres darte una idea de cómo funciona antes de instalar las herramientas para desarrollador.
 
 Por otro lado, hay otras [opciones gratuitas](https://www.brailleblaster.org/) para Windows (sin soporte para español).
 
