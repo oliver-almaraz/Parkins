@@ -10,7 +10,7 @@ correctamente sin tener que instalar nuevas fuentes o emuladores de teminal Unix
 
 ### Pero puedes usar la versión en línea desde cualquier sistema operativo:
 #### [BrailleTermWeb](https://oliver-almaraz.github.io/BrailleTermWeb/Perk/Perk.html).
-La desventaja con respecto a la aplicación de escritorio es que no podrás guardar el texto braille en un documento de texto.
+La desventaja con respecto a la aplicación de escritorio es que no podrás guardar el texto braille en un documento de texto (pero puedes copiar y pegar).
 
 ### ¿Quieres usarlo en macOS?
 Si tienes una mac y te gustaría usar la aplicación de escritorio pero no sabes cómo **compilar el código fuente**, [contáctame](mailto:oliver.almaraz@gmail.com) y te ayudo.
