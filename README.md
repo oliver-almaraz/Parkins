@@ -13,7 +13,7 @@ correctamente sin tener que instalar nuevas fuentes o emuladores de teminal Unix
 La desventaja con respecto a la aplicación de escritorio es que no podrás guardar el texto braille en un documento de texto.
 
 ### ¿Quieres usarlo en macOS?
-Si tienes una mac y te gustaría usar la aplicación de escritorio pero no sabes cómo **compilar el código fuente**, [contáctame](oliver.almaraz@gmail.com) y te ayudo.
+Si tienes una mac y te gustaría usar la aplicación de escritorio pero no sabes cómo **compilar el código fuente**, [contáctame](mailto:oliver.almaraz@gmail.com) y te ayudo.
 
 #### [**Compila y ejecuta el código en tiempo real.**](https://repl.it/repls/ExternalDapperCommas?lite=true)
 Si quieres darte una idea de cómo funciona antes de instalar las herramientas para desarrollador.
