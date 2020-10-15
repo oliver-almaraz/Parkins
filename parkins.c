@@ -40,6 +40,10 @@ const char *diacríticos [] = {
   "á", "é", "í", "ó", "ú", "ü", "ñ",
   "Á", "É", "Í", "Ó", "Ú", "Ü", "Ñ"
 };
+const char *signosPuntNumer[] = {
+	"⠖", "⠤", "⠦", "⠴", "⠶",
+	"+", "-", "*", "/", "="
+};
 
 int main() {
 
@@ -271,18 +275,36 @@ int main() {
 					MAYUS = 0;
 					NUMERAL = 0;
 				}
-				 else if (NUMERAL && *alpha[i] >=97 && *alpha[i] <=106) { // Si NUMERAL está activado y la letra está en el rango a-j
+				 else if (NUMERAL && *alpha[i] >=97 && *alpha[i] <=106) {
+					 // Si NUMERAL está activado y es un número
 				 	for (j=0; j<10; j++) {
 					 	if (nums[j] == braille[i]) {
 							strcat(texto, nums[j+10]);
 							goto inicio;
-							// Ya se había desactivado NUMERAL con el punto 5
 						}
 					}
 				} 
 				 else if (NUMERAL && *alpha[i] >=107 && *alpha[i] <=122) { // Si NUMERAL y se escribe una letra minus. fuera del rango a-j
 					NUMERAL=0;
 					strcat(texto, alpha[i]);
+				}
+				  else if (NUMERAL &&
+				  	(
+					  braille[i] == "⠖" ||
+					  braille[i] == "⠤" ||
+					  braille[i] == "⠦" ||
+					  braille[i] == "⠴" ||
+					  braille[i] == "⠶"
+					)
+					  ) {
+					 // Si es un signo matemático
+				 	for (j=0; j<5; j++) {
+					 	if (signosPuntNumer[j] == braille[i]) {
+							strcat(texto, signosPuntNumer[j+5]);
+							NUMERAL = 0;
+							goto inicio;
+						}
+					}
 				}
 				 else {
 					strcat(texto, alpha[i]);
