@@ -4,14 +4,29 @@ como si estuvieras escribiendo con una máquina Perkins. Podrás visualizar en t
 al alfabeto, números y signos de puntuación del español.
 Al final puedes guardar los caracteres braille escritos en un documento de texto (\*.txt).
 
-### Por ahora solo funciona en Linux...
+## Por ahora solo funciona en Linux...
 Por más que peleé contra la codificación de las consolas de Windows (otra vez) no encontré una manera de que los signos braille Unicode se mostraran
 correctamente sin tener que instalar nuevas fuentes o emuladores de teminal Unix, además de que las terminales de Windows son menos responsivas (¿o será el sistema?).
+### Compilar en Linux:
+Descarga el código, descomprime la carpeta, abre una terminal en el directorio donde están los archivos, compila y ejecuta. En resumen:
 
-### Pero puedes usarla desde cualquier sistema operativo compilando en línea:
-[Relp.it](https://repl.it/languages/c) tiene un excelente compilador en línea que funciona con un servidor Ubuntu y Clang:
+```
+>$ git clone https://github.com/oliver-almaraz/Parkins
+>$ cd Parkins
+>$ gcc parkins.c -o Parkins
+>$ ./Parkins
+```
+Si no tienes instalados Git o GCC (poco factible), **deben** estar en los repositorios de tu distribución. 
 
-#### [**Compila y ejecuta el código en tiempo real.**](https://repl.it/repls/ExternalDapperCommas?lite=true)
+## pero puedes usar la versión en línea desde cualquier sistema operativo:
+### [BrailleTermWeb](https://oliver-almaraz.github.io/BrailleTermWeb/Perk/Perk.html).
+La desventaja con respecto a la aplicación de escritorio es que no podrás guardar el texto braille en un documento de texto (pero puedes copiar y pegar).
+
+### ¿Quieres usarlo en macOS?
+Si tienes una mac y te gustaría usar la aplicación de escritorio pero no sabes cómo **compilar el código fuente**, [contáctame](mailto:oliver.almaraz@gmail.com) y te ayudo.
+
+### [**Compila y ejecuta el código en tiempo real**](https://repl.it/repls/ExternalDapperCommas?lite=true)
+si quieres darte una idea de cómo funciona antes de instalar las herramientas para desarrollador.
 
 Por otro lado, hay otras [opciones gratuitas](https://www.brailleblaster.org/) para Windows (sin soporte para español).
 
