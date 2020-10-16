@@ -308,6 +308,7 @@ int main() {
 				}
 				 else {
 					strcat(texto, alpha[i]);
+					NUMERAL = 0;
 				}
 			}
 		}
