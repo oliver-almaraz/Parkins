@@ -1,7 +1,7 @@
 /*
 Si es una letra, número o signo de puntuación,
 se añade el signo braille a 'textoBrai' y el equivalente
-en texto a 'texto'
+en texto español a 'texto'
 */
 
 #include <stdio.h>
@@ -19,7 +19,7 @@ extern const char *alpha[];
 extern const char *nums[];
 
 int añadir(
-        char input[], char textoBrai[], char *texto,
+        char input[], char *textoBrai, char *texto,
         bool *NUMERAL, bool *MAYUS
     ) {
 

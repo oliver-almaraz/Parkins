@@ -1,5 +1,7 @@
 /*
-Se borra el último elemento de ambas partes: texto y braille.
+* Se borra el último elemento de ambas partes: texto y braille.
+* Consideraciones especiales para signos que ocupan dos chars y
+* para signos que hay que borrar juntos.
 */
 
 #include <stdlib.h>
@@ -9,7 +11,7 @@ Se borra el último elemento de ambas partes: texto y braille.
 
 extern const char *diacríticos[];
 
-int borrar(char textoBrai[], char *texto, bool *NUMERAL, bool *MAYUS) {
+int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
 
     if (textoBrai[strlen(textoBrai)-1] == '\n' || textoBrai[strlen(textoBrai)-1] == '\t') {
                 // Para borrar tabulación o salto solo se borra el último char

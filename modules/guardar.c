@@ -2,6 +2,8 @@
 * Se crea un documento .txt y se escriben en él
 * los signos braille. El nombre del doc. por defecto
 * se crea con una timestamp, pero se puede cambiar.
+* Al terminar, se puede salir del programa o regresar
+* a 'main' a continuar escribiendo.
 */
 
 #include <time.h>
@@ -11,7 +13,7 @@
 
 #include "modules.h"
 
-int guardar(char input[], char textoBrai[], char *texto) {
+int guardar(char input[], char *textoBrai, char *texto) {
     char nombre[25];
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
@@ -23,6 +25,7 @@ int guardar(char input[], char textoBrai[], char *texto) {
     printf("¿Quieres guardarlo con otro nombre o en otra ubicación? s/n\n");
     char resp[3];
     fgets(resp,3,stdin);
+    
     if ( ! strcmp(resp, "s\n") || ! strcmp(resp, "S\n")) {
         char rutaAbsol[250] = "";
         printf("Ingresa la ruta absoluta (nombre incluido) del documento a crear (si existe será sobreescrito):\n");
@@ -52,6 +55,7 @@ int guardar(char input[], char textoBrai[], char *texto) {
     fgets(input, 8, stdin);
     if (! strcmp(input, "salir\n") || ! strcmp(input, "SALIR\n")) {
         free(texto);
+        free(textoBrai);
         exit(0);
     }
     else

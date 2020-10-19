@@ -1,12 +1,27 @@
 /*********************************************
-Asegúrate de que tu editor esté configurado
-con codificación UTF-8.
-
-Compilar en GCC:
->$ gcc ./modules/signos ./modules/borrar.c ./modules/guardar.c ./modules/añadir.c main.c
-
-Oliver Almaraz
-oliver.almaraz@gmail.com
+/ DESCRIPCIÓN:
+/  	Este programa se ejecuta desde la terminal,
+/ recibe un input de 6 teclas simultáneas que
+/ interpreta como una entrada de signo braille
+/ en una máquina Perkins (ver 'signos.c').
+/ En la parte superior de la terminal muestra los
+/ signos braille y en la inferior su equivalente
+/ en texto español. Permite guardar los signos
+/ braille escritos en un documento de texto.
+/ También se pueden borrar los últimos signos de
+/ ambas partes (texto y braille), con ciertas
+/ consideraciones especiales.
+/ 	De momento no funciona en Windows debido a
+/ la codificación de las terminales, habrá que
+/ hacer una interfaz gráfica (GTK3?).
+/ Asegúrate de que tu editor esté configurado
+/ con codificación UTF-8.
+/ 
+/ Compilar en GCC:
+/ >$ gcc ./modules/signos ./modules/borrar.c ./modules/guardar.c ./modules/añadir.c main.c
+/ 
+/ Oliver Almaraz
+/ oliver.almaraz@gmail.com
 **********************************************/
 
 #include <stdio.h>
@@ -22,7 +37,7 @@ int main() {
 	setlocale(LC_ALL, "");
 
     char input[8]; // 6 puntos + \n y el pilón
-	char textoBrai[3000] = ""; // Tamaño = 1 byte por char, cada letra braille contiene 3 bytes.
+	char *textoBrai = (char*)calloc(3500, sizeof(char)); // Tamaño = 1 byte por char, cada letra braille contiene 3 bytes.
 	char *texto = (char*)calloc(1000, sizeof(char));
 	bool MAYUS = false;
 	bool NUMERAL = false;
@@ -93,6 +108,7 @@ int main() {
 		************/
 		 else if (! strcmp(input, "salir\n") || ! strcmp(input, "SALIR\n")) {
 			free(texto);
+			free(textoBrai);
 			return 0;
 		}
 
