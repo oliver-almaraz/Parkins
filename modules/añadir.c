@@ -10,13 +10,18 @@ en texto a 'texto'
 #include <stdbool.h>
 #include <ctype.h>
 
-#include "funciones.h"
+#include "modules.h"
+
+extern const char *diacríticos[];
+extern const char *perk[];
+extern const char *braille[];
+extern const char *alpha[];
+extern const char *nums[];
 
 int añadir(
-        char input[], char textoBrai[], char *texto, const char *diacríticos[],
-        const char *perk[], const char *braille[], bool *NUMERAL, bool *MAYUS,
-        const char *alpha[], const char *nums[]
-        ) {
+        char input[], char textoBrai[], char *texto,
+        bool *NUMERAL, bool *MAYUS
+    ) {
 
     for (int i = 0; i <= 64; i++) {
 
@@ -83,5 +88,6 @@ int añadir(
             }
         }
 	}
+    return 0;
 };
     

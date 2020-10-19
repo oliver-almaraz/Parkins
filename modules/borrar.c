@@ -5,9 +5,11 @@ Se borra el último elemento de ambas partes: texto y braille.
 #include <stdlib.h>
 #include <string.h>
 
-#include "funciones.h"
+#include "modules.h"
 
-int borrar(char textoBrai[], char *texto, const char *diacríticos[], bool *NUMERAL, bool *MAYUS) {
+extern const char *diacríticos[];
+
+int borrar(char textoBrai[], char *texto, bool *NUMERAL, bool *MAYUS) {
 
     if (textoBrai[strlen(textoBrai)-1] == '\n' || textoBrai[strlen(textoBrai)-1] == '\t') {
                 // Para borrar tabulación o salto solo se borra el último char

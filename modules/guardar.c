@@ -1,9 +1,15 @@
+/*
+* Se crea un documento .txt y se escriben en él
+* los signos braille. El nombre del doc. por defecto
+* se crea con una timestamp, pero se puede cambiar.
+*/
+
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "funciones.h"
+#include "modules.h"
 
 int guardar(char input[], char textoBrai[], char *texto) {
     char nombre[25];
