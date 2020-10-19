@@ -42,8 +42,7 @@ int main() {
 	bool MAYUS = false;
 	bool NUMERAL = false;
 
-	while (1) {
-		inicio:
+	while (true) {
 		system("clear");
 		printf(
 			"╔═════════════════════════════════════════════════════════════════════════════════╗\n"
