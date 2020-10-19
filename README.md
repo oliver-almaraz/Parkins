@@ -13,7 +13,7 @@ Descarga el código, descomprime la carpeta, abre una terminal en el directorio 
 ```
 >$ git clone https://github.com/oliver-almaraz/Parkins
 >$ cd Parkins
->$ gcc parkins.c -o Parkins
+>$ gcc ./funciones/borrar.c ./funciones/guardar.c ./funciones/añadir.c main.c -o Parkins
 >$ ./Parkins
 ```
 Si no tienes instalados Git o GCC (poco factible), **deben** estar en los repositorios de tu distribución. 
