@@ -58,7 +58,7 @@ int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
         for (int i=0; i <3; i++) {
             textoBrai[strlen(textoBrai)-1] = '\0';
         }
-        NUMERAL = true;
+        *NUMERAL = true;
     }
     return 0;
 };
