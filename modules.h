@@ -1,6 +1,6 @@
 #include <stdbool.h>
-#ifndef OTHER_H_INCLUDED
-#define OTHER_H_INCLUDED
+#ifndef MODULES
+#define MODULES
 
 int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS);
 

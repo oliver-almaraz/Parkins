@@ -18,6 +18,22 @@ int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
                     textoBrai[strlen(textoBrai)-1] = '\0';
     }
      else { // Caracteres braille requieren borrar 3 chars
+
+        if ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠨")){ //se borra mayus
+            *MAYUS = false;
+            for (int i=0; i < 3; i++) {
+                textoBrai[strlen(textoBrai)-1] = '\0';
+            }
+            return 0;
+        }
+        else if ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠼")) {	 //se borra numeral
+            *NUMERAL = false;
+            for (int i=0; i < 3; i++) {
+                textoBrai[strlen(textoBrai)-1] = '\0';
+            }
+            return 0;
+        }
+
         for (int i=0; i <3; i++) {
             textoBrai[strlen(textoBrai)-1] = '\0';
         }

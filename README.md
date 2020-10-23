@@ -6,15 +6,15 @@ Al final puedes guardar los caracteres braille escritos en un documento de texto
 
 ## Por ahora solo funciona en Linux...
 Por más que peleé contra la codificación de las consolas de Windows (otra vez) no encontré una manera de que los signos braille Unicode se mostraran
-correctamente sin tener que instalar nuevas fuentes o emuladores de teminal Unix, además de que las terminales de Windows son menos responsivas (¿o será el sistema?).
+correctamente sin tener que instalar nuevas fuentes o emuladores de teminal Unix.
 ### Compilar en Linux:
 Descarga el código, descomprime la carpeta, abre una terminal en el directorio donde están los archivos, compila y ejecuta. En resumen:
 
 ```
 >$ git clone https://github.com/oliver-almaraz/Parkins
 >$ cd Parkins
->$ gcc ./funciones/borrar.c ./funciones/guardar.c ./funciones/añadir.c main.c -o Parkins
->$ ./Parkins
+>$ make
+>$ ./parkins
 ```
 Si no tienes instalados Git o GCC (poco factible), **deben** estar en los repositorios de tu distribución. 
 

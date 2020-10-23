@@ -23,7 +23,7 @@ int añadir(
         bool *NUMERAL, bool *MAYUS
     ) {
 
-    for (int i = 0; i <= 64; i++) {
+    for (register int i = 0; i <= 64; i++) {
 
         if (! strcmp(input, perk[i])) { // strcmp() retorna 0 si son idénticas
             // Se añade el signo braille a textoBrai
@@ -90,4 +90,3 @@ int añadir(
 	}
     return 0;
 };
-    
