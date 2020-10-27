@@ -32,6 +32,7 @@
 *.dylib
 
 # Executables
+parkins
 *.exe
 *.out
 *.app
@@ -44,12 +45,3 @@
 *.su
 *.idb
 *.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf

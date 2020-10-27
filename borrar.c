@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 #include "modules.h"
 
@@ -76,5 +77,12 @@ int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
         }
         *NUMERAL = true;
     }
+
+    if ( isdigit(texto[strlen(texto)-1]) ){
+        // Por si se borró s. de mayus o punto 5 solamente,
+        // se regresa a seguir escribiendo nums.
+        *NUMERAL = true;
+    }
+
     return 0;
 };
