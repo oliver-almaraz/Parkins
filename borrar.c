@@ -32,8 +32,11 @@ int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
             }
             return 0;
         }
-        else if ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠼")) {	 //se borra numeral
-            *NUMERAL = false;
+        else if ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠼")) { //se borra numeral
+            if ( ! isdigit(texto[strlen(texto)-1])) {
+                // Previene un error molesto por descuido
+                *NUMERAL = false;
+            }
             for (int i=0; i < 3; i++) {
                 textoBrai[strlen(textoBrai)-1] = '\0';
             }
