@@ -25,6 +25,11 @@ int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
             for (int i=0; i < 3; i++) {
                 textoBrai[strlen(textoBrai)-1] = '\0';
             }
+            if ( isdigit(texto[strlen(texto)-1]) ){
+                // si había nums antes de mayus
+                // se regresa a seguir escribiendo nums.
+                *NUMERAL = true;
+            }
             return 0;
         }
         else if ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠼")) {	 //se borra numeral
@@ -33,6 +38,15 @@ int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
                 textoBrai[strlen(textoBrai)-1] = '\0';
             }
             return 0;
+        } else if (
+            ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠐")) && // Punto 5
+            isdigit(texto[strlen(texto)-1]) // usado como separador de nums
+        ) {
+            for (int i=0; i <3; i++) {
+                textoBrai[strlen(textoBrai)-1] = '\0';
+            }
+            *NUMERAL = true;
+            return 0;
         }
 
         for (int i=0; i <3; i++) {
@@ -40,15 +54,14 @@ int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
         }
     }
     // Si después de borrar el último caracter braille quedó un s. numeral o de mayus:
-    if (
-        ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠨")) || //mayus
-        ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠼"))	 //numeral
-    ) {
+    if ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠨") ) {//mayus
+        *MAYUS = false;
         for (int i=0; i <3; i++) {
             textoBrai[strlen(textoBrai)-1] = '\0';
         }
-        *NUMERAL = false; // Se desactiva NUMERAL si se borra el signo numeral
-        // MAYUS no se desactiva porque de desactiva solo a la primera letra después de él
+
+    } else if ( ! strcmp(textoBrai + (strlen(textoBrai)-3), "⠼")) { // Numeral
+        *NUMERAL = false;
     }
 
 
@@ -78,11 +91,11 @@ int borrar(char *textoBrai, char *texto, bool *NUMERAL, bool *MAYUS) {
         *NUMERAL = true;
     }
 
-    if ( isdigit(texto[strlen(texto)-1]) ){
-        // Por si se borró s. de mayus o punto 5 solamente,
-        // se regresa a seguir escribiendo nums.
-        *NUMERAL = true;
-    }
+    if ( isdigit(texto[strlen(texto)-1]) && // Si hay un número al final
+        ( strcmp(textoBrai + (strlen(textoBrai)-3), "⠐")) && // Y no hay signo de mayus o separador
+        ( strcmp(textoBrai + (strlen(textoBrai)-3), "⠨")) ) {
+            *NUMERAL = true;
+        }
 
     return 0;
 };
